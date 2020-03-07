@@ -1,6 +1,6 @@
 # https://www.jacoco.org/jacoco/
 
-ARG jacoco_version=0.7.9
+ARG jacoco_version=0.8.0
 ARG alpine_version=latest
 
 FROM alpine:$alpine_version as downloader
