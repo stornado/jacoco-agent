@@ -27,8 +27,7 @@ ARG alpine_version
 
 ENV JACOCO_VERSION $jacoco_version
 
-WORKDIR /jacoco/lib
-VOLUME [ "/jacoco/lib" ]
+WORKDIR /jacoco
 
 COPY --from=downloader /jacoco/lib/jacocoagent.jar .
 
