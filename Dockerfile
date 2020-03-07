@@ -27,9 +27,8 @@ ARG alpine_version
 
 ENV JACOCO_VERSION $jacoco_version
 
-WORKDIR /jacoco/lib
-VOLUME [ "/jacoco/lib" ]
+WORKDIR /jacoco
 
 COPY --from=downloader /jacoco/lib/jacocoagent.jar .
 
-CMD ["echo", "-e", "The JaCoCo agent collects execution information and dumps it on request or \nwhen the JVM exits. There are three different modes for execution data output:\n\n    1. File System: At JVM termination execution data is written to a local \n    file.\n    2. TCP Socket Server: External tools can connect to the JVM and retrieve \n    execution data over the socket connection. Optional execution data reset \n    and execution data dump on VM exit is possible.\n    3. TCP Socket Client: At startup the JaCoCo agent connects to a given TCP \n    endpoint. Execution data is written to the socket connection on request. \n    Optional execution data reset and execution data dump on VM exit is possible.\n\nThe agent jacocoagent.jar is part of the JaCoCo distribution and includes all \nrequired dependencies. A Java agent can be activated with the following JVM option:\n\n    -javaagent:/jacoco/lib/jacocoagent.jar=[option1]=[value1],[option2]=[value2]\n\nMore info please visit: https://www.eclemma.org/jacoco/trunk/doc/agent.html\n"]
+CMD ["echo", "-e", "The JaCoCo agent collects execution information and dumps it on request or \nwhen the JVM exits. There are three different modes for execution data output:\n\n    1. File System: At JVM termination execution data is written to a local \n    file.\n    2. TCP Socket Server: External tools can connect to the JVM and retrieve \n    execution data over the socket connection. Optional execution data reset \n    and execution data dump on VM exit is possible.\n    3. TCP Socket Client: At startup the JaCoCo agent connects to a given TCP \n    endpoint. Execution data is written to the socket connection on request. \n    Optional execution data reset and execution data dump on VM exit is possible.\n\nThe agent jacocoagent.jar is part of the JaCoCo distribution and includes all \nrequired dependencies. A Java agent can be activated with the following JVM option:\n\n    -javaagent:[yourpath/]jacocoagent.jar=[option1]=[value1],[option2]=[value2]\n\nMore info please visit: https://www.eclemma.org/jacoco/trunk/doc/agent.html\n"]
